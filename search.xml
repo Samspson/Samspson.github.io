@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/uncategorized/hello-world/</url>
-    <content><![CDATA[<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <title>FFmpeg推流问题</title>
+    <url>/FFmpeg/ffmpeg/</url>
+    <content><![CDATA[<h1 id="FFmpeg推流问题"><a href="#FFmpeg推流问题" class="headerlink" title="FFmpeg推流问题"></a>FFmpeg推流问题</h1><h2 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h2><p>使用<code>ffmpeg</code>推流报错: <code>Input/output error</code></p>
+<p>推流命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -re -y -i stream.mp4 -c:v copy -c:a copy -flags +loop -f flv <span class="string">&quot;rtmp://127.0.0.1:1935/hls/mystream&quot;</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>报错如下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rtmp://127.0.0.1:1935/hls/mystream: Input/output error</span><br></pre></td></tr></table></figure>
+
+<p>原因是<code>live</code>的名字与<code>nginx.conf</code>中的<code>rtmp</code>名字不同，改成相同即可。</p>
+<p>如我的<code>nginx</code>配置文件中的<code>rtmp</code>配置为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rtmp &#123;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 1935;  # 监听的端口  </span><br><span class="line">        chunk_size 4000;</span><br><span class="line">        max_streams 1024; # max stream count</span><br><span class="line">        ack_window 5000000; # ack windows size</span><br><span class="line"></span><br><span class="line">        application live &#123;  # rtmp推流请求路径  </span><br><span class="line">            live on;</span><br><span class="line">            exec_options on;</span><br><span class="line">            publish_notify on;</span><br><span class="line"></span><br><span class="line">            hls on;</span><br><span class="line">            hls_path html&#x2F;hls;  # 生成TS文件和.m3u8文件保存目录</span><br><span class="line">            hls_fragment 1s;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        application vod &#123;</span><br><span class="line">            play &#x2F;opt&#x2F;video;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>命令改为如下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ffmpeg -re -y -i stream.mp4 -c:v copy -c:a copy -flags +loop -f flv <span class="string">&quot;rtmp://127.0.0.1:1935/live/mystream&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>再次推流即可成功。</p>
+<h2 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ connection to tcp://127.0.0.1:1935 failed:connection refuseed</span><br></pre></td></tr></table></figure>
+
+<p>出现这种情况，一般是由于<code>nginx</code>未启动，需要启动<code>nginx</code>。</p>
 ]]></content>
+      <categories>
+        <category>FFmpeg</category>
+      </categories>
+      <tags>
+        <tag>FFmpeg</tag>
+        <tag>RTMP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python常见问题解决办法</title>
+    <url>/Python/python_problem/</url>
+    <content><![CDATA[<h1 id="Python常见问题解决办法"><a href="#Python常见问题解决办法" class="headerlink" title="Python常见问题解决办法"></a>Python常见问题解决办法</h1><h2 id="requests-ssl-问题"><a href="#requests-ssl-问题" class="headerlink" title="requests ssl 问题"></a><code>requests ssl</code> 问题</h2><p>使用<code>python3</code> <code>requests</code>库访问某些网站或者服务器时，有些需要证书。此处可以添加参数<code>verify</code>， 关闭校验，具体可以将其置为<code>False</code>：<code>verfiy=False</code></p>
+<a id="more"></a>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">InsecureRequestWarning: Unverified HTTPS request <span class="keyword">is</span> being made. Adding certificate verification <span class="keyword">is</span> strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html<span class="comment">#ssl-warnings InsecureRequestWarning)</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>解决办法</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib3</span><br><span class="line">urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>SSL</tag>
+      </tags>
   </entry>
 </search>

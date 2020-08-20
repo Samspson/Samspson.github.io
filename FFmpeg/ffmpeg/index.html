@@ -22,17 +22,21 @@
     var CONFIG = {"hostname":"varsion.cc","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="分享点滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="晓鹏的博客">
-<meta property="og:url" content="https://varsion.cc/archives/index.html">
+  <meta name="description" content="FFmpeg推流问题问题1使用ffmpeg推流报错: Input&#x2F;output error 推流命令 1ffmpeg -re -y -i stream.mp4 -c:v copy -c:a copy -flags +loop -f flv &quot;rtmp:&#x2F;&#x2F;127.0.0.1:1935&#x2F;hls&#x2F;mystream&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FFmpeg推流问题">
+<meta property="og:url" content="https://varsion.cc/FFmpeg/ffmpeg/index.html">
 <meta property="og:site_name" content="晓鹏的博客">
-<meta property="og:description" content="分享点滴">
+<meta property="og:description" content="FFmpeg推流问题问题1使用ffmpeg推流报错: Input&#x2F;output error 推流命令 1ffmpeg -re -y -i stream.mp4 -c:v copy -c:a copy -flags +loop -f flv &quot;rtmp:&#x2F;&#x2F;127.0.0.1:1935&#x2F;hls&#x2F;mystream&quot;">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-14T11:00:00.000Z">
+<meta property="article:modified_time" content="2020-08-20T07:37:23.684Z">
 <meta property="article:author" content="Wei Xiaopeng">
+<meta property="article:tag" content="FFmpeg">
+<meta property="article:tag" content="RTMP">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://varsion.cc/archives/">
+<link rel="canonical" href="https://varsion.cc/FFmpeg/ffmpeg/">
 
 
 <script id="page-configurations">
@@ -40,12 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 晓鹏的博客</title>
+  <title>FFmpeg推流问题 | 晓鹏的博客</title>
   
 
 
@@ -160,70 +164,159 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 2 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://varsion.cc/FFmpeg/ffmpeg/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Wei Xiaopeng">
+      <meta itemprop="description" content="分享点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晓鹏的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          FFmpeg推流问题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-14 19:00:00" itemprop="dateCreated datePublished" datetime="2020-07-14T19:00:00+08:00">2020-07-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-20 15:37:23" itemprop="dateModified" datetime="2020-08-20T15:37:23+08:00">2020-08-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/FFmpeg/" itemprop="url" rel="index"><span itemprop="name">FFmpeg</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>834</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
-    </div>
+        <h1 id="FFmpeg推流问题"><a href="#FFmpeg推流问题" class="headerlink" title="FFmpeg推流问题"></a>FFmpeg推流问题</h1><h2 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h2><p>使用<code>ffmpeg</code>推流报错: <code>Input/output error</code></p>
+<p>推流命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -re -y -i stream.mp4 -c:v copy -c:a copy -flags +loop -f flv <span class="string">&quot;rtmp://127.0.0.1:1935/hls/mystream&quot;</span></span><br></pre></td></tr></table></figure>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<a id="more"></a>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-14T19:00:00+08:00"
-              content="2020-07-14">
-          07-14
-        </time>
-      </div>
+<p>报错如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rtmp://127.0.0.1:1935/hls/mystream: Input/output error</span><br></pre></td></tr></table></figure>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/FFmpeg/ffmpeg/" itemprop="url">
-            <span itemprop="name">FFmpeg推流问题</span>
-          </a>
-      </div>
+<p>原因是<code>live</code>的名字与<code>nginx.conf</code>中的<code>rtmp</code>名字不同，改成相同即可。</p>
+<p>如我的<code>nginx</code>配置文件中的<code>rtmp</code>配置为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">rtmp &#123;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 1935;  # 监听的端口  </span><br><span class="line">        chunk_size 4000;</span><br><span class="line">        max_streams 1024; # max stream count</span><br><span class="line">        ack_window 5000000; # ack windows size</span><br><span class="line"></span><br><span class="line">        application live &#123;  # rtmp推流请求路径  </span><br><span class="line">            live on;</span><br><span class="line">            exec_options on;</span><br><span class="line">            publish_notify on;</span><br><span class="line"></span><br><span class="line">            hls on;</span><br><span class="line">            hls_path html&#x2F;hls;  # 生成TS文件和.m3u8文件保存目录</span><br><span class="line">            hls_fragment 1s;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        application vod &#123;</span><br><span class="line">            play &#x2F;opt&#x2F;video;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </article>
+<p>命令改为如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -re -y -i stream.mp4 -c:v copy -c:a copy -flags +loop -f flv <span class="string">&quot;rtmp://127.0.0.1:1935/live/mystream&quot;</span></span><br></pre></td></tr></table></figure>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<p>再次推流即可成功。</p>
+<h2 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ connection to tcp://127.0.0.1:1935 failed:connection refuseed</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-14T10:00:00+08:00"
-              content="2020-07-14">
-          07-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Python/python_problem/" itemprop="url">
-            <span itemprop="name">Python常见问题解决办法</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+<p>出现这种情况，一般是由于<code>nginx</code>未启动，需要启动<code>nginx</code>。</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Wei Xiaopeng
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://varsion.cc/FFmpeg/ffmpeg/" title="FFmpeg推流问题">https://varsion.cc/FFmpeg/ffmpeg/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/FFmpeg/" rel="tag"><i class="fa fa-tag"></i> FFmpeg</a>
+              <a href="/tags/RTMP/" rel="tag"><i class="fa fa-tag"></i> RTMP</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Python/python_problem/" rel="prev" title="Python常见问题解决办法">
+      <i class="fa fa-chevron-left"></i> Python常见问题解决办法
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+    
+      <i class="fa fa-thumb-tack"></i>
+      <font color=7D26CD>置顶</font>
+      <span class="post-meta-divider">|</span>
+    
+  </article>
+  
+  
   
 
 
@@ -276,6 +369,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FFmpeg%E6%8E%A8%E6%B5%81%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">FFmpeg推流问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%981"><span class="nav-number">1.1.</span> <span class="nav-text">问题1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%982"><span class="nav-number">1.2.</span> <span class="nav-text">问题2</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
